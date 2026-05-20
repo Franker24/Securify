@@ -17,6 +17,7 @@ import Solutions from './components/Solutions';
 import Company from './components/Company';
 import Support from './components/Support';
 import GetStarted from './components/GetStarted';
+import Portal from './components/Portal';
 import Footer from './components/Footer';
 
 function ScrollToTop() {
@@ -55,6 +56,7 @@ function AppContent() {
           <Route path="/company" element={<Company />} />
           <Route path="/support" element={<Support />} />
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/portal" element={<Portal />} />
         </Routes>
       </div>
       {!isHome && <Footer />}

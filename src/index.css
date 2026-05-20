@@ -23,6 +23,31 @@
     @apply lowercase;
   }
 
+  .section-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-xl;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  .btn-primary {
+    @apply bg-white font-medium text-black transition-all duration-200;
+    @apply hover:bg-neutral-100 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply border border-white/15 bg-white/5 font-medium text-white transition-all duration-200;
+    @apply hover:border-white/25 hover:bg-white/10 active:scale-[0.98];
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white;
+    @apply placeholder:text-white/30 transition-colors duration-200;
+    @apply focus:border-white/25 focus:outline-none focus:ring-1 focus:ring-white/10;
+  }
+
   .scanline {
     width: 100%;
     height: 100px;

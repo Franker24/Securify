@@ -15,21 +15,22 @@ import { Mail, MessageSquare, Phone, MapPin } from 'lucide-react';
 
 export default function Support() {
   return (
-    <section id="support" className="pt-40 pb-24 px-10 bg-black min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <section id="support" className="flex min-h-screen items-center bg-black px-4 pb-24 pt-28 sm:px-6 md:px-10 md:pt-40">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h2 className="hero-title text-6xl md:text-8xl font-medium mb-8">
+            <p className="section-label mb-4">contact</p>
+            <h2 className="hero-title mb-8 text-5xl font-medium md:text-7xl lg:text-8xl">
               get in <br /><span className="text-white/40">touch.</span>
             </h2>
-            <p className="text-white/60 text-lg mb-12 max-w-md lowercase">
+            <p className="mb-12 max-w-md text-base leading-relaxed text-white/55">
               our specialized security team is available 24/7 to help you navigate the complexities of data protection. reach out today.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white/60" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                  <Mail className="h-5 w-5 text-white/60" />
                 </div>
                 <div>
                   <p className="text-white/30 text-xs uppercase tracking-widest font-bold">email</p>
@@ -37,8 +38,8 @@ export default function Support() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">
-                  <MessageSquare className="w-5 h-5 text-white/60" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                  <MessageSquare className="h-5 w-5 text-white/60" />
                 </div>
                 <div>
                   <p className="text-white/30 text-xs uppercase tracking-widest font-bold">live chat</p>
@@ -46,8 +47,8 @@ export default function Support() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-white/60" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                  <Phone className="h-5 w-5 text-white/60" />
                 </div>
                 <div>
                   <p className="text-white/30 text-xs uppercase tracking-widest font-bold">phone</p>
@@ -57,29 +58,21 @@ export default function Support() {
             </div>
           </div>
 
-          <div className="bg-neutral-900/50 border border-white/10 rounded-[2rem] p-10 backdrop-blur-xl">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-6">
+          <div className="card-surface p-6 sm:p-8 md:p-10">
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold ml-1">name</label>
-                  <input 
-                    type="text" 
-                    placeholder="john doe"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors"
-                  />
+                  <label className="ml-1 text-xs font-semibold uppercase tracking-widest text-white/40">name</label>
+                  <input type="text" placeholder="john doe" className="input-field" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold ml-1">email</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@company.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors"
-                  />
+                  <label className="ml-1 text-xs font-semibold uppercase tracking-widest text-white/40">email</label>
+                  <input type="email" placeholder="john@company.com" className="input-field" />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/40 font-bold ml-1">subject</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white/60 focus:outline-none focus:border-white/20 transition-colors appearance-none lowercase">
+                <label className="ml-1 text-xs font-semibold uppercase tracking-widest text-white/40">subject</label>
+                <select className="input-field appearance-none">
                   <option>technical support</option>
                   <option>enterprise sales</option>
                   <option>partnership inquiry</option>
@@ -87,17 +80,14 @@ export default function Support() {
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/40 font-bold ml-1">message</label>
-                <textarea 
+                <label className="ml-1 text-xs font-semibold uppercase tracking-widest text-white/40">message</label>
+                <textarea
                   rows={4}
                   placeholder="how can we help you?"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors resize-none"
+                  className="input-field resize-none"
                 />
               </div>
-              <button 
-                type="submit"
-                className="w-full bg-white text-black font-medium rounded-2xl py-5 hover:bg-neutral-200 transition-colors mt-4 lowercase"
-              >
+              <button type="submit" className="btn-primary mt-2 w-full rounded-xl py-4">
                 send message
               </button>
             </form>

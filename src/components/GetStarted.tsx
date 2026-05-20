@@ -6,49 +6,60 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, UserPlus, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function GetStarted() {
   const [step, setStep] = useState(1);
+  const navigate = useNavigate();
 
   const industries = [
-    "fintech", "healthcare", "government", "e-commerce", "saas", "other"
+    'fintech', 'healthcare', 'government', 'e-commerce', 'saas', 'other',
   ];
 
   return (
-    <section className="min-h-screen bg-black pt-40 pb-20 px-10 flex flex-col items-center">
-      <div className="max-w-xl w-full">
-        <motion.div 
+    <section className="flex min-h-screen flex-col items-center bg-black px-4 pb-20 pt-28 sm:px-6 md:px-10 md:pt-40">
+      <div className="w-full max-w-xl">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="mb-10 text-center sm:mb-12"
         >
-          <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/10">
-            <UserPlus className="w-6 h-6 text-white" />
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+            <UserPlus className="h-6 w-6 text-white" />
           </div>
-          <h2 className="hero-title text-5xl font-medium mb-4">initialize <br />your account.</h2>
-          <p className="text-white/40 lowercase">step {step} of 3 — security profile setup</p>
+          <p className="section-label mb-4">onboarding</p>
+          <h2 className="hero-title mb-4 text-4xl font-medium sm:text-5xl">
+            initialize <br />
+            your account.
+          </h2>
+          <p className="text-sm text-white/40">
+            step {step} of 3 — security profile setup
+          </p>
         </motion.div>
 
-        <motion.div 
-          className="bg-neutral-900/50 border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-xl relative overflow-hidden"
+        <motion.div
+          className="card-surface relative overflow-hidden p-6 sm:p-8 md:p-12"
           layout
         >
-          {/* Progress bar */}
-          <div className="absolute top-0 left-0 h-1 bg-white transition-all duration-500" style={{ width: `${(step/3)*100}%` }} />
+          <div
+            className="absolute left-0 top-0 h-0.5 bg-gradient-to-r from-white/80 to-white/20 transition-all duration-500"
+            style={{ width: `${(step / 3) * 100}%` }}
+          />
 
           {step === 1 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-8"
+              className="space-y-6"
             >
-              <h3 className="text-xl font-medium lowercase">select your industry segment</h3>
+              <h3 className="text-lg font-medium text-white">select your industry segment</h3>
               <div className="grid grid-cols-2 gap-3">
                 {industries.map((ind) => (
-                  <button 
+                  <button
                     key={ind}
+                    type="button"
                     onClick={() => setStep(2)}
-                    className="p-4 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all text-sm text-white/70 hover:text-white lowercase text-left"
+                    className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-left text-sm text-white/70 transition-all hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
                   >
                     {ind}
                   </button>
@@ -58,56 +69,60 @@ export default function GetStarted() {
           )}
 
           {step === 2 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               className="space-y-6"
             >
-              <h3 className="text-xl font-medium lowercase">create your credentials</h3>
+              <h3 className="text-lg font-medium text-white">create your credentials</h3>
               <div className="space-y-4">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder="admin email"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors lowercase"
+                  className="input-field lowercase"
                 />
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   placeholder="secure passphrase"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors lowercase"
+                  className="input-field lowercase"
                 />
               </div>
-              <button 
+              <button
+                type="button"
                 onClick={() => setStep(3)}
-                className="w-full bg-white text-black font-medium rounded-2xl py-5 flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors lowercase"
+                className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl py-4"
               >
-                continue <ArrowRight className="w-4 h-4" />
+                continue <ArrowRight className="h-4 w-4" />
               </button>
             </motion.div>
           )}
 
           {step === 3 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-center py-8"
+              className="py-6 text-center sm:py-8"
             >
-              <div className="w-20 h-20 bg-green-500/20 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-8">
-                <ShieldCheck className="w-10 h-10 text-green-500" />
+              <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10">
+                <ShieldCheck className="h-10 w-10 text-emerald-500" />
               </div>
-              <h3 className="text-2xl font-medium mb-4 lowercase">protocol initialized.</h3>
-              <p className="text-white/50 text-sm mb-10 lowercase leading-relaxed">
-                your secure environment is being provisioned. we've sent a verification link to your secure inbox.
+              <h3 className="mb-4 text-2xl font-medium text-white">protocol initialized.</h3>
+              <p className="mb-10 text-sm leading-relaxed text-white/50">
+                your secure environment is being provisioned. we&apos;ve sent a verification link to
+                your secure inbox.
               </p>
-              <button 
-                className="w-full bg-neutral-800 text-white font-medium rounded-2xl py-5 hover:bg-neutral-700 transition-colors lowercase"
+              <button
+                type="button"
+                onClick={() => navigate('/portal')}
+                className="btn-primary w-full rounded-xl py-4"
               >
                 go to portal
               </button>
             </motion.div>
           )}
         </motion.div>
-        
-        <p className="mt-8 text-center text-xs text-white/20 uppercase tracking-widest leading-relaxed">
+
+        <p className="mt-8 text-center text-[10px] uppercase leading-relaxed tracking-[0.2em] text-white/20">
           encryption provided by securify quantum core v2.4.0 <br />
           authorized access only
         </p>

@@ -86,36 +86,37 @@ export default function Platform() {
       {/* Scanline Effect */}
       <div className="scanline" />
 
-      <div className="relative z-10 pt-40 pb-32 px-10">
+      <div className="relative z-10 px-4 pb-24 pt-28 sm:px-6 md:px-10 md:pb-32 md:pt-40">
         <motion.div 
-          className="max-w-7xl mx-auto"
+          className="mx-auto max-w-7xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
+          <motion.p className="section-label mb-4" variants={itemVariants}>infrastructure</motion.p>
           <motion.h2 
-            className="hero-title text-6xl md:text-9xl font-medium mb-24 max-w-4xl tracking-tighter"
+            className="hero-title mb-16 max-w-4xl text-5xl font-medium tracking-tighter md:mb-24 md:text-7xl lg:text-8xl"
             variants={itemVariants}
           >
             the platform <br /><span className="text-white/40">built for speed.</span>
           </motion.h2>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32"
+            className="mb-20 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mb-32 lg:grid-cols-4 lg:gap-5"
             variants={containerVariants}
           >
             {features.map((f, i) => (
               <motion.div 
                 key={i} 
-                className="group p-8 rounded-[2.5rem] bg-neutral-900/40 border border-white/5 hover:border-white/20 transition-all backdrop-blur-sm relative overflow-hidden"
+                className="card-surface group relative overflow-hidden p-6 transition-all hover:border-white/20 md:p-8"
                 variants={itemVariants}
-                whileHover={{ y: -10, backgroundColor: "rgba(38, 38, 38, 0.6)" }}
+                whileHover={{ y: -6 }}
               >
-                <div className="mb-8 w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/60 group-hover:text-white transition-colors relative z-10">
+                <div className="relative z-10 mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition-colors group-hover:text-white">
                   {f.icon}
                 </div>
-                <h3 className="text-xl font-medium mb-3 lowercase relative z-10">{f.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed lowercase relative z-10">{f.desc}</p>
+                <h3 className="relative z-10 mb-2 text-lg font-medium">{f.title}</h3>
+                <p className="relative z-10 text-sm leading-relaxed text-white/55">{f.desc}</p>
                 
                 {/* Futuristic grid pattern on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
@@ -127,9 +128,9 @@ export default function Platform() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <motion.div variants={itemVariants}>
-              <p className="text-xs uppercase tracking-[0.3em] font-bold text-white/30 mb-8">[ core infrastructure ]</p>
-              <h3 className="hero-title text-5xl font-medium mb-10">redefining <br />modern architecture.</h3>
-              <p className="text-white/60 text-lg leading-relaxed lowercase max-w-md">
+              <p className="section-label mb-6">core infrastructure</p>
+              <h3 className="hero-title mb-8 text-4xl font-medium md:text-5xl">redefining <br />modern architecture.</h3>
+              <p className="max-w-md text-base leading-relaxed text-white/55 md:text-lg">
                 our infrastructure is built on a distributed network of secure nodes, providing unparalleled resilience and cryptographic proof of integrity for every operation.
               </p>
             </motion.div>

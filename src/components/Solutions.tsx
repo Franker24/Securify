@@ -93,55 +93,53 @@ export default function Solutions() {
       {/* Subtle overlay to reduce "whiteness" */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
 
-      <div className="relative z-10 pt-40 pb-32 px-10">
+      <div className="relative z-10 px-4 pb-24 pt-28 sm:px-6 md:px-10 md:pb-32 md:pt-40">
         <motion.div 
-          className="max-w-7xl mx-auto"
+          className="mx-auto max-w-7xl"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12" variants={itemVariants}>
-            <h2 className="hero-title text-6xl md:text-9xl font-medium tracking-tighter">
-              tailored <br /><span className="text-white/40">solutions.</span>
-            </h2>
-            <p className="max-w-md text-white/50 text-lg leading-relaxed lowercase lg:text-right">
+          <motion.div className="mb-16 flex flex-col items-start justify-between gap-8 md:mb-24 lg:flex-row lg:items-end lg:gap-12" variants={itemVariants}>
+            <div>
+              <p className="section-label mb-4">industry</p>
+              <h2 className="hero-title text-5xl font-medium tracking-tighter md:text-7xl lg:text-8xl">
+                tailored <br /><span className="text-white/40">solutions.</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-relaxed text-white/50 lg:text-right md:text-lg">
               we understand every industry has unique risks. our solutions are engineered to meet the highest standards of your specific niche.
             </p>
           </motion.div>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-40" variants={containerVariants}>
+          <motion.div className="mb-20 grid grid-cols-1 gap-5 md:mb-32 md:grid-cols-3 md:gap-6" variants={containerVariants}>
             {solutions.map((s, i) => (
               <motion.div 
                 key={i} 
-                className="relative group p-10 rounded-[3rem] bg-white/5 hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-md"
+                className="card-surface group relative p-8 transition-all hover:border-white/20 md:p-10"
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -6 }}
               >
-                <span className="text-[10px] tracking-widest uppercase text-white/30 font-bold mb-6 block">
-                  [{s.tag}]
-                </span>
-                <h3 className="text-4xl font-medium mb-8 lowercase group-hover:text-white transition-colors">{s.name}</h3>
-                <p className="text-white/50 text-sm leading-relaxed lowercase mb-10">{s.desc}</p>
-                <div className="h-px w-full bg-white/10 group-hover:bg-white/30 transition-colors" />
-                
-                {/* Visual accent */}
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-1 bg-white group-hover:w-1/2 transition-all duration-500 rounded-full blur-[2px]" />
+                <span className="section-label mb-5 block">{s.tag}</span>
+                <h3 className="mb-5 text-2xl font-medium transition-colors group-hover:text-white md:text-3xl">{s.name}</h3>
+                <p className="mb-8 text-sm leading-relaxed text-white/50">{s.desc}</p>
+                <div className="h-px w-full bg-white/10 transition-colors group-hover:bg-white/25" />
               </motion.div>
             ))}
           </motion.div>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-12" variants={containerVariants}>
+          <motion.div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6" variants={containerVariants}>
             {testimonials.map((t, i) => (
               <motion.div 
                 key={i} 
-                className="p-12 rounded-[3.5rem] bg-gradient-to-br from-white/[0.07] to-transparent border border-white/10 flex flex-col justify-between h-80 backdrop-blur-lg group hover:border-white/20 transition-colors"
+                className="card-surface flex min-h-[280px] flex-col justify-between p-8 transition-colors hover:border-white/20 md:p-10"
                 variants={itemVariants}
               >
-                <p className="text-2xl font-medium italic lowercase leading-tight group-hover:text-white transition-colors">"{t.quote}"</p>
+                <p className="text-xl font-medium leading-snug text-white/90 md:text-2xl">&ldquo;{t.quote}&rdquo;</p>
                 <div>
-                  <p className="text-white font-medium lowercase">{t.author}</p>
-                  <p className="text-white/40 text-xs uppercase tracking-widest mt-1">{t.role}</p>
+                  <p className="font-medium text-white">{t.author}</p>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-white/40">{t.role}</p>
                 </div>
               </motion.div>
             ))}
